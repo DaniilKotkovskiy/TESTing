@@ -22,14 +22,14 @@ int main()
             out << ",rgb(248,248,248)" << endl;
             out << ",rgb(245,245,245)" << endl;
 
-            int i, colourHEX;
-            colourHEX = 240;
-            out << ",rgb(" << colourHEX << "," << colourHEX << "," << colourHEX << ")" << endl;
+            int i, colourRGB;
+            colourRGB = 240;
+            out << ",rgb(" << colourRGB << "," << colourRGB << "," << colourRGB << ")" << endl;
 
                 for (i = 0; i <= 29; i++) {
                         
-                    colourHEX -= 8;
-                    out << ",rgb(" << colourHEX << "," << colourHEX << "," << colourHEX << ")" << endl;
+                    colourRGB -= 8;
+                    out << ",rgb(" << colourRGB << "," << colourRGB << "," << colourRGB << ")" << endl;
                     
                 }
                     
