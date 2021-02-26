@@ -1,19 +1,21 @@
 #include <string>
 #include <iostream>
 #include <cassert>
+#include <iomanip>
 
 using namespace std;
 
-//void Test21(int v)
-//{
-//    assert(v > 0);
-//}
-//void Test22(int a)
-//{
-//    assert(a >= 0);
-//}
+void TestQantity(int valueQuantity)
+{
+    assert(valueQuantity > 0);
+   
+}
+void TestPositiveAge(int intAge)
+{
+    assert(intAge >= 0);
+}
 
-class Human {
+class PearsonData {
 
     private:
 
@@ -23,7 +25,7 @@ class Human {
 
     public:
 
-        Human(string valueSurname, string valueName, int valueAge)
+        PearsonData(string valueSurname, string valueName, int valueAge)
         {
             surname = valueSurname;
             name = valueName;
@@ -31,12 +33,13 @@ class Human {
 
         }
 
-   /* Human()
-    {
-        family = "No";
-        name = "No";
-        age = 0;
-    }*/
+            PearsonData() 
+            {
+                surname = " ";
+                name = " ";
+                age = 0;
+
+            };
 
             void setSurname(string valueSurname)
             {
@@ -63,7 +66,7 @@ class Human {
 
             }
 
-            void getname()
+            void getName()
             {
                 cout << " " << name << " ";
 
@@ -85,80 +88,73 @@ class Human {
 };
 
 int main()
-{
+{             
+    cout << "Hello!\nPlease, write number of person's in list: ";
+    int valueQuantity;
+    cin >> valueQuantity;
 
-    //русский язык
-    setlocale(LC_ALL, "ru");
-    //Главное меню              
-    cout << "Запишите размер списка людей." << endl;
-    //Выбор пункта
-    int v;
-    cout << "Ваш выбор: ";
-    cin >> v;
-    //Test21(v);
-    //Вводимые данные
-    Human* Stas = new Human[v];
-    for (int i = 0; i < v; i++)
+    TestQantity(valueQuantity);
+
+    cout << "\n";
+
+    PearsonData *pearson = new PearsonData[valueQuantity];
+    for (int i = 0; i < valueQuantity; i++) 
     {
-        string f, n;
-        int a;
-        system("cls");
-        cout << "Выберите фамилию " << i + 1 << " человека: ";
-        cin >> f;
-        Stas[i].setfamily(f);
-        cout << "Выберите имя " << i + 1 << " человека: ";
-        cin >> n;
-        Stas[i].setname(n);
-        cout << "Выберите возраст " << i + 1 << " человека: ";
-        cin >> a;
-        //Test22(a);
-        Stas[i].setage(a);
-        system("cls");
+        string strSurname, strName;
+        int intAge;
+
+        cout << "Enter SURNANME of the " << i + 1 << " peason: ";
+        cin >> strSurname;
+        pearson[i].setSurname(strSurname);
+        cout << "Enter NAME of the " << i + 1 << " peason: ";
+        cin >> strName;
+        pearson[i].setName(strName);
+        cout << "Enter AGE of the " << i + 1 << " peason: ";
+        cin >> intAge;
+
+        TestPositiveAge(intAge);
+        
+        pearson[i].setAge(intAge);
+
     }
-    cout << "Вывод:" << endl;
-    for (int i = 0; i < v; i++)
+
+    cout << "\nPearson's list:\n\n";
+
+    for (int i = 0; i < valueQuantity; i++) 
     {
         cout << i + 1 << ".";
-        Stas[i].Print();
+        pearson[i].Print();
         cout << endl;
+
     }
+
     int i = 0;
-    double summar = 0;
-    int max, min = Stas[0].getage();
-    for (int i = 0; i < v; i++)
+    float sumAge = 0;
+    int maxAge, minAge = pearson[0].getAge();
+    for (int i = 0; i < valueQuantity; i++)
     {
         if (i == 0)
         {
-            max = Stas[i].getage();
-            min = Stas[i].getage();
+            maxAge = pearson[i].getAge();
+            minAge = pearson[i].getAge();
         }
-        if (Stas[i].getage() > max)
+        if (pearson[i].getAge() > maxAge)
         {
-            max = Stas[i].getage();
+            maxAge = pearson[i].getAge();
         }
-        if (Stas[i].getage() < min)
+        if (pearson[i].getAge() < minAge)
         {
-            min = Stas[i].getage();
+            minAge = pearson[i].getAge();
         }
-        summar += Stas[i].getage();
+        sumAge += pearson[i].getAge();
     }
-    cout << "Самый малый возраст: ";
-    cout << min << endl;
-    cout << "Самый большой возраст: ";
-    cout << max << endl;
-    cout << "Cредний возраст: ";
-    cout << summar / v << endl;
+    cout << "Youngest person is about: ";
+    cout << minAge << endl;
+    cout << "Oldest person is about: ";
+    cout << maxAge << endl;
+    cout << "Average age is: ";
+    printf("%.2f", sumAge / valueQuantity);
 
     return 0;
+
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
