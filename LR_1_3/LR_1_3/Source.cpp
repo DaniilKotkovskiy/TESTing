@@ -3,22 +3,25 @@
 
 using namespace std;
 
-int s(int a, int b)
+void TestSquare(double a, double b)
 {
-    return a * b;
+    assert(a >= 0);
+    assert(b >= 0);
+
+    cout << "\nTesting IS OK!\n";
+
 }
 
-void TestSum()
-{
-    assert(s(2, 3) == 6);
-    assert(s(-2, 3) == -6);
-    assert(s(-2, 0) == 0);
-    assert(s(-2, 2) == -4);
-    cout << "Test OK";
-}
 
-int main()
+void main()
 {
-    TestSum();
-    return 0;
+    double a, b, s;
+    cout << "Hello, dude. Could you, please, enter A for me?\nA: ";
+    cin >> a;
+    cout << "And B\nB: ";
+    cin >> b;
+    s = a * b;
+    cout << "And your squere is: " << s << "\n";
+    TestSquare(a, b);
+
 }
