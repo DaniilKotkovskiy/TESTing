@@ -1,0 +1,10 @@
+﻿  Source.cpp
+D:\LR_1_2\LR_1_2\Source.cpp(62,24): error C2065: 'family': undeclared identifier
+D:\LR_1_2\LR_1_2\Source.cpp(67,32): error C2065: 'family': undeclared identifier
+D:\LR_1_2\LR_1_2\Source.cpp(85,31): error C2512: 'Human': no appropriate default constructor available
+D:\LR_1_2\LR_1_2\Source.cpp(93,17): error C2039: 'setfamily': is not a member of 'Human'
+D:\LR_1_2\LR_1_2\Source.cpp(16): message : see declaration of 'Human'
+D:\LR_1_2\LR_1_2\Source.cpp(96,17): error C2039: 'setname': is not a member of 'Human'
+D:\LR_1_2\LR_1_2\Source.cpp(16): message : see declaration of 'Human'
+D:\LR_1_2\LR_1_2\Source.cpp(100,17): error C2039: 'setage': is not a member of 'Human'
+D:\LR_1_2\LR_1_2\Source.cpp(16): message : see declaration of 'Human'
