@@ -8,8 +8,6 @@ void TestSquare(double a, double b)
     assert(a >= 0);
     assert(b >= 0);
 
-    cout << "\nTesting IS OK!\n";
-
 }
 
 
@@ -20,8 +18,8 @@ void main()
     cin >> a;
     cout << "And B\nB: ";
     cin >> b;
+    TestSquare(a, b);
     s = a * b;
     cout << "And your squere is: " << s << "\n";
-    TestSquare(a, b);
 
 }
