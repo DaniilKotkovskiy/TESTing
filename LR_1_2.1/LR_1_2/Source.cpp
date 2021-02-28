@@ -9,11 +9,13 @@ using namespace std;
 void TestQantity(int valueQuantity)
 {
     assert(valueQuantity > 0);
+
    
 }
 void TestPositiveAge(int intAge)
 {
     assert(intAge >= 0);
+
 }
 
 int main()
@@ -21,12 +23,11 @@ int main()
     cout << "Hello!\nPlease, write number of person's in list: ";
     int valueQuantity;
     cin >> valueQuantity;
-
     TestQantity(valueQuantity);
-
     cout << "\n";
 
     PearsonData *pearson = new PearsonData[valueQuantity];
+
     for (int i = 0; i < valueQuantity; i++) 
     {
         string strSurname, strName;
@@ -60,23 +61,32 @@ int main()
     int i = 0;
     float sumAge = 0;
     int maxAge, minAge = pearson[0].getAge();
+
     for (int i = 0; i < valueQuantity; i++)
     {
         if (i == 0)
         {
             maxAge = pearson[i].getAge();
             minAge = pearson[i].getAge();
+
         }
+
         if (pearson[i].getAge() > maxAge)
         {
             maxAge = pearson[i].getAge();
+
         }
+
         if (pearson[i].getAge() < minAge)
         {
             minAge = pearson[i].getAge();
+
         }
+
         sumAge += pearson[i].getAge();
+
     }
+
     cout << "Youngest person is about: ";
     cout << minAge << endl;
     cout << "Oldest person is about: ";
